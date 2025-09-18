@@ -102,7 +102,7 @@ def upload():
 def config():
     config_data = request.form.get('config')
     if config_data:
-        config = yaml.load(config_data, Loader=yaml.Loader)
+        config = yaml.safe_load(config_data)
         return f"Config loaded: {config}"
     return "No config provided"
 
